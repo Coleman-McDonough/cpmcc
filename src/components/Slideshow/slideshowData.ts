@@ -5,7 +5,7 @@ export interface ImageData {
 }
 
 export const images: ImageData[] = [
-  { src: "/images/slideshow/pic1.jpg", alt: "Project 1" },
+  { src: "/images/slideshow/pic17.jpg", alt: "Project 1" },
   { src: "/images/slideshow/pic2.jpg", alt: "Project 2" },
   { src: "/images/slideshow/pic3.jpg", alt: "Project 3" },
   { src: "/images/slideshow/pic4.jpg", alt: "Project 4" },
