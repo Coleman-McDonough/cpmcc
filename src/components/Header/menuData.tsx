@@ -8,40 +8,27 @@ const menuData: Menu[] = [
     newTab: false,
   },
   {
-    id: 2,
-    title: "Services",
+    id: 22,
+    title: "Hauling",
+    path: "/coming-soon",
     newTab: false,
-    submenu: [
-      {
-        id: 21,
-        title: "Building",
-        path: "/coming-soon",
-        newTab: false,
-      },
-      {
-        id: 22,
-        title: "Hauling",
-        path: "/coming-soon",
-        newTab: false,
-      },
-      {
-        id: 23,
-        title: "Materials",
-        path: "/materials",
-        newTab: false,
-      },
-    ],
   },
   {
-    id: 33,
-    title: "About",
-    path: "/about",
+    id: 23,
+    title: "Materials",
+    path: "/materials",
     newTab: false,
   },
   {
     id: 3,
     title: "Projects",
     path: "/projects",
+    newTab: false,
+  },
+  {
+    id: 33,
+    title: "About",
+    path: "/about",
     newTab: false,
   },
   {

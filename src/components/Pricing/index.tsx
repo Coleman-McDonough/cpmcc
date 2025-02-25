@@ -23,7 +23,7 @@ const Pricing = () => {
             subtitle="We put up buildings start to finish, handling every aspect of the construction process."
           >
             <div className="dark:border-white dark:border-opacity-10 border-opacity-10">
-              <Link href="/building">
+              <Link href="/projects">
                 <button className="flex w-full items-center justify-center rounded-sm bg-primary p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
                   Learn More
                 </button>
