@@ -37,7 +37,7 @@ const Pricing = () => {
             subtitle="We offer hauling services with a triaxle and a tractor trailer available for hire."
           >
             <div className="dark:border-white dark:border-opacity-10 border-opacity-10">
-              <Link href="/hauling">
+              <Link href="/coming-soon">
                 <button className="flex w-full items-center justify-center rounded-sm bg-primary p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
                   Learn More
                 </button>
