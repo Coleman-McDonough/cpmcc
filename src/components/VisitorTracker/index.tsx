@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function VisitorTracker() {
-  const searchParams = useSearchParams();
-  const fromQr = searchParams.get("qr") === "true"; // Check if user came from QR code
+  const [fromQr, setFromQr] = useState(false);
+
+  useEffect(() => {
+    // Use the browser's URL to get query parameters
+    const searchParams = new URLSearchParams(window.location.search);
+    setFromQr(searchParams.get("qr") === "true");
+  }, []);
 
   useEffect(() => {
     if (!fromQr) {
