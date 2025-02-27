@@ -65,3 +65,29 @@ export async function connectToMongodbHauling(): Promise<DatabaseConnection> {
   const db = client.db("hauling");
   return { db, client };
 }
+
+export async function connectToMongodbQrVisitors(): Promise<DatabaseConnection> {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB - QR Visitors");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    throw error;
+  }
+
+  const db = client.db("cpmccQrVisitors");
+  return { db, client };
+}
+
+export async function connectToMongodbMainVisitors(): Promise<DatabaseConnection> {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB - Main Visitors");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    throw error;
+  }
+
+  const db = client.db("cpmccMainPageVisitors");
+  return { db, client };
+}
