@@ -7,15 +7,13 @@ import { ObjectId } from "mongodb";
 export async function GET(req: NextRequest) {
   try {
     const userAgent = req.headers.get("user-agent") || "";
-    let deviceType = /mobile|android|iphone|ipad|ipod/i.test(userAgent)
+    const deviceType = /mobile|android|iphone|ipad|ipod/i.test(userAgent)
       ? "mobile"
       : "desktop";
-
     const ip = req.headers.get("x-forwarded-for") || req.ip || "unknown";
 
     const { db } = await connectToMongodbQrVisitors();
 
-    // Log the QR visitor
     await db.collection("visitorLogs").insertOne({
       _id: new ObjectId(),
       ip,
@@ -27,7 +25,7 @@ export async function GET(req: NextRequest) {
 
     console.log(`QR Visitor Logged: ${ip}`);
 
-    // Redirect to the main page with a flag to prevent duplicate logging
+    // Redirect to main page with `?qr=true` to prevent duplicate tracking
     return NextResponse.redirect(
       "https://www.cpmcdonoughconstructioncorp.com/?qr=true",
     );
