@@ -25,6 +25,7 @@ export async function GET(req: NextRequest) {
       ip,
       deviceType,
       timestamp: new Date().getTime(),
+      userAgent: userAgent,
     });
 
     console.log(`Main Page Visitor Logged: ${ip}`);
