@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
-import { connectToMongodbMainVisitors } from "../../lib/mongodb";
+import { connectToMongodbVisitors } from "../../lib/mongodb";
 import { ObjectId } from "mongodb";
 
 export async function GET(req: NextRequest) {
@@ -18,15 +18,13 @@ export async function GET(req: NextRequest) {
       : "desktop";
     const ip = req.headers.get("x-forwarded-for") || req.ip || "unknown";
 
-    const { db } = await connectToMongodbMainVisitors();
+    const { db } = await connectToMongodbVisitors();
 
-    await db.collection("visitorLogs").insertOne({
+    await db.collection("mainPage").insertOne({
       _id: new ObjectId(),
       ip,
       deviceType,
-      userAgent,
-      timestamp: new Date(),
-      source: "Main Page",
+      timestamp: new Date().getTime(),
     });
 
     console.log(`Main Page Visitor Logged: ${ip}`);
