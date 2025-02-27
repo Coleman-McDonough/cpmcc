@@ -1,3 +1,5 @@
+// use client;
+
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Blog from "@/components/Blog";
@@ -10,6 +12,7 @@ import Pricing from "@/components/Pricing";
 import Slideshow from "@/components/Slideshow";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
+import VisitorTracker from "@/components/VisitorTracker";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,6 +25,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <VisitorTracker />
       <ScrollUp />
       <Hero />
       <Pricing />
