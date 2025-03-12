@@ -28,6 +28,16 @@ const Contact = () => {
     setErrorMessage(""); // Reset error message
     setSuccessMessage(""); // Reset success message
 
+    // Check if hCaptcha is completed
+
+    if (!captchaToken) {
+      setStatus("");
+
+      setErrorMessage("Please complete the CAPTCHA.");
+
+      return;
+    }
+
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
