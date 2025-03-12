@@ -3,7 +3,27 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message, captchaToken } = await request.json();
+
+    // Step 1: Verify hCaptcha
+    const captchaResponse = await fetch(`https://api.hcaptcha.com/siteverify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: process.env.HCAPTCHA_SECRET_KEY!,
+        response: captchaToken,
+      }).toString(),
+    });
+
+    const captchaData = await captchaResponse.json();
+    console.log("🔍 hCaptcha Verification Response:", captchaData);
+
+    if (!captchaData.success) {
+      return NextResponse.json(
+        { error: "CAPTCHA verification failed", details: captchaData },
+        { status: 400 },
+      );
+    }
 
     const transporter = nodemailer.createTransport({
       host: "live.smtp.mailtrap.io",
