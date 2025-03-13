@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     });
 
     const mailOptions = {
-      from: `C.P. McDonough Construction Corp Email <emailer@toylocker.llc>`,
+      from: `C.P. McDonough Construction Corp Email <emailer@cpmcdonoughconstructioncorp.com>`,
       to: process.env.EMAIL_TO,
       subject: `C.P. McDonough Construction Corp message from ${name}`,
       text: message,
