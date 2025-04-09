@@ -3,7 +3,7 @@ import { Brand } from "@/types/brand";
 const brandsData: Brand[] = [
   {
     id: 6,
-    number: "2006",
+    number: "1986",
     type: "Year Established",
   },
   {
